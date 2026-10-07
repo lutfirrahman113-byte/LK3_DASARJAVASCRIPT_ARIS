@@ -1,100 +1,453 @@
-/* Reset CSS Dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    :root {
+      --bg-dark: #0a0e17;
+      --bg-card: rgba(20, 28, 45, 0.65);
+      --bg-card-border: rgba(255, 255, 255, 0.1);
+      --primary: #6366f1;
+      --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+      --accent: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* Latar belakang biru gradasi modern */
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-/* Kartu Profil (Glassmorphism Effect) */
-.profile-card {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 32px;
-  border-radius: 20px;
-  max-width: 380px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
 
-/* Foto Profil */
-.profile-img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #2a5298;
-  margin-bottom: 16px;
-}
+    /* ==========================================
+       2. BACKGROUND ANIMASI KEREN (MESH GRADIENT)
+       ========================================== */
+    .bg-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: -1;
+      opacity: 0.5;
+      animation: float 12s infinite alternate ease-in-out;
+    }
 
-/* Nama dan Judul */
-.profile-name {
-  font-size: 1.5rem;
-  color: #1e293b;
-  margin-bottom: 4px;
-}
+    .blob-1 {
+      width: 450px;
+      height: 450px;
+      background: #6366f1;
+      top: -100px;
+      left: -100px;
+    }
 
-.profile-title {
-  font-size: 0.9rem;
-  color: #2563eb;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      background: #a855f7;
+      bottom: -150px;
+      right: -100px;
+      animation-delay: -4s;
+    }
 
-/* Bio Singkat */
-.profile-bio {
-  font-size: 0.95rem;
-  color: #64748b;
-  line-height: 1.5;
-  margin-bottom: 24px;
-}
+    .blob-3 {
+      width: 350px;
+      height: 350px;
+      background: #ec4899;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -8s;
+    }
 
-/* Group Tombol Tautan */
-.profile-links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, 60px) scale(1.1); }
+      100% { transform: translate(-30px, -40px) scale(0.95); }
+    }
 
-/* Gaya Tombol */
-.btn {
-  display: block;
-  padding: 12px 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
+    /* Grid Overlay Effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -1;
+      pointer-events: none;
+    }
 
-.btn-primary {
-  background-color: #2563eb;
-  color: #ffffff;
-}
+    /* ==========================================
+       3. NAVIGATION BAR
+       ========================================== */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1000px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 50px;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
 
-.btn-primary:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-}
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
 
-.btn-outline {
-  border: 2px solid #cbd5e1;
-  color: #334155;
-}
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-.btn-outline:hover {
-  border-color: #2563eb;
-  color: #2563eb;
-  background-color: #f8fafc;
-  transform: translateY(-2px);
-}
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* ==========================================
+       4. CONTAINER & GLASS CARDS
+       ========================================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+    }
+
+    /* ==========================================
+       5. HERO SECTION
+       ========================================== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .profile-img-container {
+      position: relative;
+      width: 230px;
+      height: 230px;
+      margin: 0 auto;
+    }
+
+    .profile-img-container::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      z-index: -1;
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--bg-dark);
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-content h1 span {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--bg-card-border);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--primary-gradient);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    /* ==========================================
+       6. SECTION HEADINGS & CONTENT
+       ========================================== */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: var(--accent);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--bg-card-border);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--accent);
+    }
+
+    .skill-card i {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .skill-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .project-body {
+      padding: 25px;
+    }
+
+    .project-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .project-body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      color: var(--text-main);
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+    }
+
+    .btn-submit {
+      background: var(--primary-gradient);
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--bg-card-border);
+    }
+
+    /* ==========================================
+       7. RESPONSIVE DESIGN (HP & TABLET)
+       ========================================== */
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 20px;
+      }
+
+      .nav-links {
+        display: none; /* Bisa dikembangkan jadi hamburger menu */
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .glass-card {
+        padding: 25px;
+      }
+    }

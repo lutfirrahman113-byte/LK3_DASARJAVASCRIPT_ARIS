@@ -3,31 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil Saya</title>
-  <!-- Menyambungkan ke file style.css -->
+  <title>Profil Me - Portfolio Modern</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+
+  </style>
 </head>
 <body>
 
-  <main class="profile-card">
-    <!-- Foto Profil -->
-    <div class="profile-header">
-      <img src="diri.jpeg" alt="Foto Profil" class="profile-img">
-      <h1 class="profile-name">Lutfir Rahman Aris</h1>
-      <p class="profile-title">Web Developer & UI/UX Designer</p>
-    </div>
+  <!-- Animated Background Blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
 
-    <!-- Deskripsi Singkat -->
-    <p class="profile-bio">
-      Pengembang web yang berfokus pada pembuatan tampilan yang responsif, modern, dan mudah digunakan.
-    </p>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Portofolio.</div>
+    <ul class="nav-links">
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#skills">Keahlian</a></li>
+      <li><a href="#projects">Proyek</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
 
-    <!-- Tombol Tautan / Media Sosial -->
-    <div class="profile-links">
-      
-<a href="https://id.wikipedia.org/wiki/Kota_Magelang" target="_blank">magelang city</a>
-    </div>
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section id="about" class="glass-card hero">
+      <div class="profile-img-container">
+        <!-- Gantilah URL gambar di bawah dengan foto profil kamu -->
+        <img src="my.jpeg" alt="Foto Profil" class="profile-img">
+      </div>
+      <div class="hero-content">
+        <h1>Halo, Saya <span>Lutfir Rahman Aris</span></h1>
+        <div class="tagline">Creative Developer & UI/UX Designer</div>
+        <p class="bio">
+          Saya seorang yang berdedikasi dan bersemangat dalam membangun pengalaman digital yang menarik, responsif, dan mudah digunakan. Berfokus pada estetika desain modern serta fungsionalitas kode yang bersih.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="glass-card">
+      <h2 class="section-title"><i class="fas fa-code"></i> Keahlian Utama</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fab fa-html5"></i>
+          <h3>Web Development</h3>
+          <p>HTML5, CSS3, JavaScript, React</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-paint-brush"></i>
+          <h3>UI/UX Design</h3>
+          <p>Figma, Adobe XD, Wireframing</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Responsive Design</h3>
+          <p>Mobile-First, Mobile Apps</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-rocket"></i>
+          <h3>Optimization</h3>
+          <p>SEO, Performance, Clean Code</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="glass-card">
+      <h2 class="section-title"><i class="fas fa-laptop-code"></i> Proyek Terbaru</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-body">
+            <h3>Website E-Commerce</h3>
+            <p>Platform toko online interaktif dengan antarmuka yang modern, cepat, dan responsif untuk semua perangkat.</p>
+            <div class="project-tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-body">
+            <h3>Aplikasi Dashboard</h3>
+            <p>Sistem manajemen data visual dengan tampilan analitik waktu-nyata dan desain Glassmorphism yang estetik.</p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Chart.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-body">
+            <h3>Desain Aplikasi Mobile</h3>
+            <p>Konsep antarmuka aplikasi kesehatan dengan pengalaman pengguna yang intuitif dan warna yang tenang.</p>
+            <div class="project-tags">
+              <span class="tag">Figma</span>
+              <span class="tag">Prototype</span>
+              <span class="tag">User Research</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="glass-card">
+      <h2 class="section-title"><i class="fas fa-envelope"></i> Hubungi Saya</h2>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan Anda berhasil terkirim!');">
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Alamat Email</label>
+          <input type="email" id="email" placeholder="@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" rows="5" placeholder="Tuliskan pesan atau penawaran proyek..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Pesan</button>
+      </form>
+    </section>
+
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Lutfir Rahman Aris. Dibuat dengan penuh rasa mumet.</p>
+  </footer>
 
 </body>
 </html>
